@@ -7,6 +7,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * 
+ * @author nick.hansen
+ *
+ */
 public class RightmostChar {
 
 	public static void main(String[] args) throws IOException {

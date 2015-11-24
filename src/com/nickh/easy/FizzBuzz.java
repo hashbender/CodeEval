@@ -5,12 +5,12 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * 
+ * @author nick.hansen
+ *
+ */
 public class FizzBuzz {
-
-	public FizzBuzz() {
-		// TODO Auto-generated constructor stub
-	}
-	
     public static void main (String[] args) throws IOException {
         File file = new File(args[0]);
         BufferedReader buffer = new BufferedReader(new FileReader(file));

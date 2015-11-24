@@ -10,6 +10,11 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * 
+ * @author nick.hansen
+ *
+ */
 public class SetIntersection {
 
 	public static void main(String[] args) throws IOException {
@@ -32,6 +37,7 @@ public class SetIntersection {
 			if (outLine.length() > 1) outLine.deleteCharAt(outLine.length() - 1);
 			System.out.println(outLine.toString());
 		}
+		buffer.close();
 	}
 
 }
