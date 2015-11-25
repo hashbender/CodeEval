@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -14,44 +15,41 @@ import java.util.List;
  */
 public class PassTriangle {
 	public static void main(String[] args) throws IOException {
-		// File file = new File(args[0]);
-		// BufferedReader buffer = new BufferedReader(new FileReader(file));
+		//File file = new File(args[0]);
+		//BufferedReader buffer = new BufferedReader(new FileReader(file));
 		// TODO uncomment this for local testing
-		BufferedReader buffer = new BufferedReader(new InputStreamReader(
-				System.in));
+		BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
 		String line;
 		List<List<Integer>> pyramid = new ArrayList<List<Integer>>();
-		while ((line = buffer.readLine()) != null && line.length() > 0) {
-			line = line.trim();
-			List<String> inputStrings = new ArrayList<String>(
-					Arrays.asList(line.split(" ")));
+		while ((line = buffer.readLine().trim()) != null && line.length() > 0) {
+			List<String> inputStrings = new ArrayList<String>(Arrays.asList(line.split(" ")));
 			List<Integer> input = new ArrayList<Integer>();
 			for (String inputString : inputStrings)
+				
 				input.add(Integer.parseInt(inputString));
 			pyramid.add(input);
 		}
 		int sum = 0;
 		int rowAboveIndex = 0;
-		for (List<Integer> row : pyramid) {
+		Collections.reverse(pyramid);
+		rowAboveIndex = pyramid.get(0).indexOf(Collections.max(pyramid.get(0)));
+		
+		for (List<Integer> row: pyramid){
 			int left = rowAboveIndex - 1;
-			int right = rowAboveIndex + 1;
+			int right = rowAboveIndex; 
 			if (left < 0) {
-				left = 0;
-			} else if (right >= row.size()) {
-				right = row.size() - 1;
+				sum += row.get(right);
+			} else if (row.get(right) > row.get(left)){
+				sum += row.get(right);
+			} else if (row.get(left) > row.get(right)){
+				rowAboveIndex = left;
+				sum += row.get(left);
+			} else if (row.get(left) == row.get(right)){
+				//TODO fuck
+				throw new RuntimeException();
 			}
-			int max = 0;
-			for (int i = left; i != right; i++) {
-				if (row.get(i) > max) {
-					max = row.get(i);
-					rowAboveIndex = i;
-				}
-			}
-			sum += max;
-			// the row above index needs to add 1 due to the row size increasing
-			rowAboveIndex++;
 		}
-		System.out.print(sum);
+		System.out.println(sum);
 		buffer.close();
 	}
 }
