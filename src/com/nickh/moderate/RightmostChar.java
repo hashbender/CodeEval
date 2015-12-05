@@ -18,7 +18,7 @@ public class RightmostChar {
 		//File file = new File(args[0]);
 		//BufferedReader buffer = new BufferedReader(new FileReader(file));
 		// TODO uncomment this for local testing
-				BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
 		String line;
 		while ((line = buffer.readLine()) != null && line.length() > 0) {
 			line = line.trim();

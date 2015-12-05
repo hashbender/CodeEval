@@ -1,9 +1,8 @@
 package com.nickh.moderate;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -48,10 +47,10 @@ The length of the sequence is in range [0, 50]
 public class DetectingCycles {
 
 	public static void main(String[] args) throws IOException {
-		File file = new File(args[0]);
-		BufferedReader buffer = new BufferedReader(new FileReader(file));
+		//File file = new File(args[0]);
+		//BufferedReader buffer = new BufferedReader(new FileReader(file));
 		// TODO uncomment this for local testing
-		//		BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
+				BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
 		String line;
 		while ((line = buffer.readLine()) != null && line.length() > 0) {
 			line = line.trim();
